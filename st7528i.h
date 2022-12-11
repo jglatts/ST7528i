@@ -197,6 +197,7 @@ class ST7528i {
 		uint8_t scl;
 		uint8_t rst;	
 		
+
 		void SendCmd(uint8_t cmd);
 		void SendCmd(uint8_t cmd1, uint8_t cmd2);
 		void SendBuf(uint8_t *pBuf, uint32_t count);
@@ -211,7 +212,7 @@ class ST7528i {
 		
 		void SetXDir(uint8_t x_map);
 		void SetYDir(uint8_t y_map);
-		
+		void SetResetPin(void);		
 		void DrawHLineInt(uint8_t X, uint8_t Y, uint8_t W, uint8_t GS);
 		void DrawVLineInt(uint8_t X, uint8_t Y, uint8_t H, uint8_t GS);
 		
@@ -222,9 +223,9 @@ class ST7528i {
 		
 
 		//Constructors
-		ST7528i();
+		ST7528i(void);
 		ST7528i(uint8_t lcd_sda, uint8_t lcd_scl, uint8_t lcd_rst);
-		~ST7528i();
+		~ST7528i(void);
 
 		// Function prototypes
 		void Init(void);
@@ -232,7 +233,7 @@ class ST7528i {
 		
 		void Flush(void);
 		void Clear(void);		
-		void ClearScreen();	//New 
+		void ClearScreen(void);	//New 
 		
 		/* If it is commented out it is either not ported or doesn't work. */
 		

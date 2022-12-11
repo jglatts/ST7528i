@@ -108,6 +108,9 @@ ST7528i::ST7528i(uint8_t lcd_sda, uint8_t lcd_scl, uint8_t lcd_rst){
 	scr_width  = SCR_W;
 	scr_height = SCR_H;
 	
+	// LCD rst pin config
+	SetResetPin();
+
 	//Start I2C for LCD
 	Wire.begin();
 	//Wire.setClock(400000); // choose 400 kHz I2C rate pg80
@@ -123,6 +126,12 @@ ST7528i::~ST7528i(){
     } */
 }
 
+void ST7528i::SetResetPin() {
+	pinMode(rst, OUTPUT);
+	digitalWrite(rst, LOW);
+	delay(5);
+	digitalWrite(rst, HIGH);
+}
 
 void ST7528i::SendCmd(uint8_t cmd) {
 	Wire.beginTransmission(ST7528i_SLAVE_ADDR);
