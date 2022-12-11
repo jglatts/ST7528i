@@ -15,3 +15,25 @@ B- 6:00 Optimal View<br>
 W- Wide Temp<br>
 <br>
 This library is a work-in-progress and will change quite a bit over time.
+
+## Example Usage
+
+```
+#include "st7528i.h"
+#include "font5x7.h"
+
+#define SCL 19
+#define SDA 18
+#define RST 8
+
+void setup() {
+  ST7528i display(SDA, SCL, RST);
+  display.Init();
+  display.PutStr(5, 30, "Hello World", fnt5x7);
+  display.Flush();
+}
+
+void loop() {
+
+}
+```

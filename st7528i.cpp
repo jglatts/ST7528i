@@ -8,7 +8,7 @@ static uint8_t scr_orientation = SCR_ORIENT_NORMAL;
 
 // Video RAM buffer (160x129x4bit = 10320 bytes)
 //static uint8_t vRAM[(SCR_W * SCR_H) >> 1] __attribute__((aligned(4)));
-static uint8_t vRAM[(SCR_W * SCR_H) >> 1] __attribute__((aligned(4)));
+static uint8_t vRAM[(160 * 129) >> 1] __attribute__((aligned(4)));
 //uint8_t  *vRAM = (uint8_t *)malloc(SCR_W * ((SCR_H + 7) / 8));
 
 // Look-up table of pixel grayscale level
