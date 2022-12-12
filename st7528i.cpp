@@ -127,8 +127,10 @@ ST7528i::~ST7528i(){
 
 void ST7528i::SetResetPin() {
 	pinMode(rst, OUTPUT);
+	digitalWrite(rst, HIGH);
+	Delay_ms(1);
 	digitalWrite(rst, LOW);
-	delay(5);
+	Delay_ms(1);
 	digitalWrite(rst, HIGH);
 }
 
