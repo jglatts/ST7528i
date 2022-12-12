@@ -1,15 +1,10 @@
 #include "st7528i.h"
 
-
-
-
 // Display image orientation
 static uint8_t scr_orientation = SCR_ORIENT_NORMAL;
 
 // Video RAM buffer (160x129x4bit = 10320 bytes)
-//static uint8_t vRAM[(SCR_W * SCR_H) >> 1] __attribute__((aligned(4)));
-static uint8_t vRAM[(160 * 129) >> 1] __attribute__((aligned(4)));
-//uint8_t  *vRAM = (uint8_t *)malloc(SCR_W * ((SCR_H + 7) / 8));
+static uint8_t vRAM[(SCR_W * SCR_H) >> 1] __attribute__((aligned(4)));
 
 // Look-up table of pixel grayscale level
 static const uint32_t GS_LUT[] = {
@@ -95,7 +90,11 @@ static const uint8_t GrayPalette[] = {
 
 
 ST7528i::ST7528i(){
-	//Do nothing constructor.
+	ST7528i(0, 0, 0);
+}
+
+ST7528i::ST7528i(uint8_t lcd_rst){
+	ST7528i(0, 0, lcd_rst);
 }
 
 ST7528i::ST7528i(uint8_t lcd_sda, uint8_t lcd_scl, uint8_t lcd_rst){

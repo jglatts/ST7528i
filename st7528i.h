@@ -224,7 +224,8 @@ class ST7528i {
 
 		//Constructors
 		ST7528i(void);
-		ST7528i(uint8_t lcd_sda, uint8_t lcd_scl, uint8_t lcd_rst);
+		ST7528i(uint8_t);
+		ST7528i(uint8_t, uint8_t, uint8_t);
 		~ST7528i(void);
 
 		// Function prototypes
